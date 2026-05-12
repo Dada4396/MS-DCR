@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ms-dcr"
+version = "1.0.0"
+description = "MS-DCR adaptive compression routing for mass spectrometry data"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {file = "LICENSE"}
+dependencies = [
+  "numpy>=1.21",
+  "lxml>=4.9",
+  "zstandard>=0.21"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+ms-dcr = "ms_dcr:main"

@@ -1,6 +1,6 @@
 # Provenance and Authorship Notes
 
-This v1.0.0 repository is a clean public-facing implementation of the core MS-DCR manuscript concepts:
+This repository provides a clean public implementation of the MS-DCR manuscript concepts:
 
 - spectrum-count routing;
 - Jaccard-similarity routing;
@@ -9,11 +9,11 @@ This v1.0.0 repository is a clean public-facing implementation of the core MS-DC
 - Zstandard block compression; and
 - minimal mzML round-trip export.
 
-Before public release, the authors should verify:
+The release follows these provenance requirements:
 
-1. no third-party code is present without compatible licensing;
-2. algorithmic concepts derived from prior publications are cited in the manuscript and README;
-3. the chosen public license is compatible with all dependencies and demo data;
-4. the code version archived for review matches the version cited in the paper.
+1. third-party dependencies retain their original licenses;
+2. algorithmic concepts derived from prior publications are cited in the manuscript;
+3. the public code and demonstration data are distributed under the repository license; and
+4. archived releases remain linked to their persistent identifiers.
 
-This file is intended to document provenance and reduce ambiguity about what is included in the public core release.
+This file documents the provenance of the public implementation and its release artifacts.

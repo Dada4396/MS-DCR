@@ -1,12 +1,10 @@
 cff-version: 1.2.0
 message: "If you use MS-DCR, please cite the associated manuscript and archived software release."
-title: "MS-DCR: A Dynamic Compression Routing Framework for Mass Spectrometry Data"
-version: "1.0.0"
-date-released: "2026-05-12"
+title: "MS-DCR: Dynamic Compression Routing for Heterogeneous Mass Spectrometry Data"
+version: "1.1.0"
+date-released: "2026-07-26"
 authors:
-  - family-names: "Author"
-    given-names: "One"
-  - family-names: "Author"
-    given-names: "Two"
+  - family-names: "Chen"
+    given-names: "Jinda"
 repository-code: "https://github.com/Dada4396/MS-DCR"
 license: "MIT"

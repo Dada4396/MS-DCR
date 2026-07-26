@@ -10,7 +10,9 @@
 - `demo_data/demo_dda_32spectra.mzML`: small DDA mzML demo file derived from original data.
 - `examples/run_demo.py`: end-to-end demo script.
 - `scripts/extract_mzml_demo.py`: demo-data extraction helper.
+- `scripts/benchmark_ms_dcr.py`: repeated encoding and decoding benchmark runner.
 - `tests/smoke_test.py`: core round-trip smoke test.
+- `tests/benchmark_smoke_test.py`: benchmark-output smoke test.
 - `docs/PROVENANCE.md`: provenance notes.
 - `docs/DATA_AVAILABILITY.md`: suggested data availability notes.
 - `docs/REPRODUCIBILITY.md`: reproducibility notes.

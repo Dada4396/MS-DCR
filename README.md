@@ -119,7 +119,8 @@ They are included only to make the core release runnable without multi-GB data d
 
 ## Citation
 
-Versioned archives are preserved through the GitHub releases linked to Zenodo.
+The archived MS-DCR v1.1.0 release is available at
+<https://doi.org/10.5281/zenodo.21608786>.
 
 ## License
 

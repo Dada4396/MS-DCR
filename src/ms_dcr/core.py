@@ -11,8 +11,8 @@ ideas described in the manuscript:
 * wrap block payloads with Zstandard compression; and
 * export a minimal mzML file for round-trip checks.
 
-The implementation is intentionally self-contained. It is not a full replacement
-for vendor converters or the complete experimental pipeline used for the paper.
+The implementation is self-contained and designed for transparent inspection,
+repeatable evaluation and extension to additional mzML data sets.
 """
 
 from __future__ import annotations
@@ -32,7 +32,7 @@ import numpy as np
 import zstandard as zstd
 from lxml import etree
 
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 MAGIC = b"MSD1"
 MZML_NS = "http://psi.hupo.org/ms/mzml"
 NS = {"ms": MZML_NS}
@@ -597,7 +597,7 @@ class MSDCREngine:
         for block in blocks:
             spectra.extend(self._decode_block(block))
         spectra.sort(key=lambda item: item.index)
-        write_minimal_mzml(spectra, output_path, run_id=Path(metadata.get("source_file", "MS_MS_DCR_demo")).stem)
+        write_minimal_mzml(spectra, output_path, run_id=Path(metadata.get("source_file", "MS_DCR_demo")).stem)
         return {
             "source_file": metadata.get("source_file"),
             "spectra_count": len(spectra),
@@ -625,7 +625,7 @@ def _add_binary_array(parent: etree._Element, accession: str, name: str, values:
     binary.text = base64.b64encode(np.asarray(values, dtype="<f8").tobytes()).decode("ascii")
 
 
-def write_minimal_mzml(spectra: Sequence[Spectrum], output_path: Path, run_id: str = "MS_MS_DCR_demo") -> None:
+def write_minimal_mzml(spectra: Sequence[Spectrum], output_path: Path, run_id: str = "MS_DCR_demo") -> None:
     """Write a compact mzML file containing reconstructed mz/intensity arrays."""
 
     output_path = Path(output_path)

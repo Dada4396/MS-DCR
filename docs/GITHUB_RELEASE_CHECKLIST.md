@@ -1,30 +1,31 @@
 # GitHub Release Checklist
 
-Use this checklist before submitting the manuscript to a software-oriented journal.
+Use this checklist when preparing the next MS-DCR release.
 
 ## Repository
 
-- Create a public GitHub repository named `MS-DCR`.
-- Push the local `main` branch to `https://github.com/Dada4396/MS-DCR`.
+- Use the public repository at `https://github.com/Dada4396/MS-DCR`.
+- Push the reviewed `main` branch after all tests pass.
 - Confirm that the README quick-start commands work on a fresh clone.
 - Confirm that `python tests/smoke_test.py` passes after `pip install -e .`.
+- Confirm that `python tests/benchmark_smoke_test.py` passes.
 
 ## Release
 
-- Create a GitHub release named `v1.0.0`.
+- Choose the next version tag after the existing `v1.0.0` release.
 - Attach a ZIP or source archive only if GitHub does not generate one automatically.
 - Confirm that `CITATION.cff` renders correctly in GitHub's citation widget.
-- Bind the GitHub repository to Zenodo and archive the `v1.0.0` release.
-- Replace the placeholder Zenodo DOI in the manuscript after the DOI is available.
+- Keep the GitHub repository linked to Zenodo and archive the new release.
+- Update the manuscript citation if the new release receives a version-specific DOI.
 
 ## Manuscript wording
 
 Recommended availability sentence:
 
-> Source code, documentation and demo mzML files for MS-DCR are available at `https://github.com/Dada4396/MS-DCR`. The archived release used in this manuscript is available at `[Zenodo DOI to be added before submission]`.
+> Source code, documentation, benchmark utilities and demo mzML files for MS-DCR are available at `https://github.com/Dada4396/MS-DCR`. Versioned releases are archived through Zenodo.
 
-## Before public release
+## Before the next release
 
-- Replace placeholder authors in `CITATION.cff`.
+- Confirm the creator and contributor metadata in `CITATION.cff` and Zenodo.
 - Confirm that demo data can be publicly redistributed.
 - Confirm that MIT licensing is acceptable to all authors and your institution.

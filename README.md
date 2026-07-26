@@ -1,13 +1,13 @@
 # MS-DCR
 
-**MS-DCR** is a reviewer-ready reference implementation of adaptive compression routing for heterogeneous mass spectrometry (MS) data.
+**MS-DCR** is a reference implementation of adaptive compression routing for heterogeneous mass spectrometry (MS) data.
 
 MS-DCR evaluates each mzML data block and routes it to one of two compression paths:
 
 - **Path A, stacked compression** for blocks that pass the minimum-count and Jaccard-similarity gates.
 - **Path B, independent compression** for small, heterogeneous or low-similarity blocks.
 
-This repository demonstrates the core routing and compression logic described in the associated manuscript, including mzML parsing, adaptive block routing, Zstandard wrapping and round-trip export to a minimal mzML representation. It is not intended to replace vendor converters or the full private benchmark pipeline used to generate every manuscript figure.
+The repository provides mzML parsing, adaptive block routing, Zstandard wrapping, round-trip export, demonstration data, tests and a repeatable benchmark utility.
 
 ## Repository contents
 
@@ -18,9 +18,10 @@ MS-DCR/
   demo_data/                    # small DDA/DIA mzML demo subsets
   examples/run_demo.py          # end-to-end demo script
   scripts/extract_mzml_demo.py  # helper for making small demo mzML files
+  scripts/benchmark_ms_dcr.py    # repeated encode/decode benchmark runner
   tests/smoke_test.py           # round-trip smoke test
   docs/                         # data, provenance and reproducibility notes
-  CITATION.cff                  # citation metadata placeholder
+  CITATION.cff                  # citation metadata
 ```
 
 ## Installation
@@ -79,6 +80,20 @@ Run the complete demo script:
 python examples/run_demo.py
 ```
 
+Run a 10-repeat benchmark and export run-level and summary CSV files:
+
+```bash
+python scripts/benchmark_ms_dcr.py \
+  demo_data/demo_dda_32spectra.mzML \
+  demo_data/demo_dia_32spectra.mzML \
+  --repeats 10 \
+  --output-dir benchmark_results
+```
+
+The benchmark verifies the decoded spectrum count on every run. Throughput is
+reported in decimal MB/s and summary files include the arithmetic mean and
+sample standard deviation.
+
 ## Core algorithmic scope
 
 This release focuses on the central MS-DCR codec path:
@@ -90,7 +105,8 @@ This release focuses on the central MS-DCR codec path:
 5. Zstd compression of block payloads;
 6. minimal mzML export for round-trip reproducibility checks.
 
-The complete manuscript pipeline may include additional benchmark orchestration, dictionary-training workflows, downstream MaxQuant/PEAKS/DIA-NN/Spectronaut analysis scripts and large data-management utilities. Those workflows should be released separately if full figure reproduction is required.
+Downstream identification and quantification were performed with established
+proteomics applications and are described in the associated manuscript.
 
 ## Demo data
 
@@ -103,8 +119,8 @@ They are included only to make the core release runnable without multi-GB data d
 
 ## Citation
 
-Please update `CITATION.cff` with the final author list, manuscript DOI and archived software DOI before formal submission or publication.
+Versioned archives are preserved through the GitHub releases linked to Zenodo.
 
 ## License
 
-This repository is released under the MIT License. Before public deposition, the authors should verify that all included code and demo data can be distributed under this license and that all third-party dependencies are properly cited.
+This repository is released under the MIT License.

@@ -22,7 +22,7 @@ Use this checklist when preparing the next MS-DCR release.
 
 Recommended availability sentence:
 
-> Source code, documentation, benchmark utilities and demo mzML files for MS-DCR are available at `https://github.com/Dada4396/MS-DCR`. Versioned releases are archived through Zenodo.
+> Source code, documentation, benchmark utilities and demo mzML files for MS-DCR are available at `https://github.com/Dada4396/MS-DCR`. The archived v1.1.0 release is available at `https://doi.org/10.5281/zenodo.21608786`.
 
 ## Before the next release
 
